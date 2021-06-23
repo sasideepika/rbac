@@ -1,0 +1,67 @@
+{
+	 "if": {
+	    "anyOf": [
+		 {
+			"not": {
+			  "anyOf": [
+                    {
+				    "field": "type",
+				    "like": "Microsoft.Devices/IotHubs/*"
+				    },
+                    {
+				    "field": "type",
+				    "like": "Microsoft.Devices/ProvisioningServices/*"
+				    },
+                    {
+				    "field": "type",
+				    "like": "Microsoft.Security/iotSecuritySolutions/*"
+				    },
+                    {
+				    "field": "type",
+				    "like": "Microsoft.Storage/storageAccounts/*"
+				    },
+                    {
+				    "field": "type",
+				    "in": ["Microsoft.Devices/IotHubs", "Microsoft.Devices/ProvisioningServices", "Microsoft.Security/iotSecuritySolutions", "Microsoft.Storage/storageAccounts"]
+				    }
+                ]
+			}
+		 },
+          {
+		  "allof": [
+			{
+			  "field": "type",
+			  "equals": "Microsoft.KeyVault/vaults"
+			},
+			{
+            "field": "Microsoft.KeyVault/vaults/sku.name",
+            "notIn": ["Standard"]
+            }
+			]
+		  },
+            {
+			"allOf": [
+			  {
+				"source": "action",
+				"equals": "Microsoft.Storage/storageAccounts/write"
+			  },
+			  {
+				"field": "type",
+				"equals": "Microsoft.Storage/storageAccounts"
+			  },
+			  {
+				"not": 
+				  {
+					"field": "Microsoft.Storage/storageAccounts/sku.name",
+					"in": ["StandardLRS"]
+				  }
+			   }
+			]
+		  }
+
+	  ]
+	},
+	"then": {
+	  "effect": "deny"
+	}
+}
