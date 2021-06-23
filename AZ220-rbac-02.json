@@ -6,9 +6,11 @@
     "Actions":  [
                     "Microsoft.Authorization/*/read",
                     "Microsoft.Devices/IotHubs/*",
+                    "Microsoft.Devices/ProvisioningServices/*",
                     "Microsoft.Resources/deployments/*",
                     "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Security/iotSecuritySolutions/*"
+                    "Microsoft.Security/iotSecuritySolutions/*",
+                    "Microsoft.Storage/storageAccounts/*"
                 ],
     "NotActions":  [
 
