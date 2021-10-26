@@ -1,0 +1,19 @@
+{
+    "Name":  "AZ204T09 RBAC",
+    "Id":  null,
+    "IsCustom":  true,
+    "Description":  "Spektra Training Custom Role.",
+    "Actions":  [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.EventGrid/topics/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Storage/storageAccounts/*",
+                    "Microsoft.EventGrid/eventSubscriptions/write",
+                    "Microsoft.Web/serverFarms/*",
+                    "Microsoft.Web/sites/*"
+                ],
+    "NotActions":  [
+
+                   ]
+}
